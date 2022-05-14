@@ -1,48 +1,43 @@
-﻿namespace ProyectoSoftwareIndividual.Validacion
-{
-    public class Validacion_de_Alquiler
-    {
-        public bool ValidarAlquiler(string DNICliente, string ISBN)
-        {
-            bool validar = true;
+﻿using ProyectoSoftwareIndividual.Presentacion.Menu;
 
-            //valida cliente
+namespace ProyectoSoftwareIndividual.Validacion
+{
+    public class ValidacionDeAlquiler
+    {
+        public Respuesta ValidarAlquiler(string DNICliente, string ISBN)
+        {
+            Respuesta validar = new Respuesta(true, "Datos ingresados validados");
             try
             {
                 int _DNI = int.Parse(DNICliente);
-
                 if (DNICliente == null || DNICliente.Length > 10 || 8 > DNICliente.Length)
                 {
-                    Console.WriteLine("no se ingreso un DNI correcto");
-                    validar = false;
+                    validar.mensaje = "El DNI no puede ser nulo, menor a 8 digitos o mayor de 10 digitos";
+                    validar.resultado = false;
                     return validar;
                 }
             }
             catch (Exception)
             {
-                Console.Clear();
-                Console.WriteLine("no se ingreso un DNI correcto");
-                validar = false;
+                validar.mensaje = "El DNI no puede contener caracteres no numericos o ser mayor a 10 digitos";
+                validar.resultado = false;
                 return validar;
             }
-            //valida ISBN
             try
             {
                 if (DNICliente == null || ISBN.Length > 50)
                 {
-                    Console.WriteLine("ISBN demaciado largo o vacio");
-                    validar = false;
+                    validar.mensaje = "El ISBN no puede ser nulo o mayor de 50 digitos";
+                    validar.resultado = false;
                     return validar;
                 }
             }
             catch (Exception)
             {
-                Console.Clear();
-                Console.WriteLine("no se ingreso un ISBN correcto");
-                validar = false;
+                validar.mensaje = "ocurrio un error con el ISBN";
+                validar.resultado = false;
                 return validar;
             }
-
             return validar;
         }
     }

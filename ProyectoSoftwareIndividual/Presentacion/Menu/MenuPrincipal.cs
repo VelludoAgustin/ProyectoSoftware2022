@@ -40,26 +40,26 @@ namespace ProyectoSoftwareIndividual.Menu
                                 break;
                             case 2://Registrar nuevo Alquiler
                                 Console.Clear();
-                                var opcion2 = new Controlador_de_Alquiler();
-                                opcion2.Controlador_CrearAlquiler("Alquilado");
+                                var opcion2 = new ControladorDeAlquiler();
+                                opcion2.ControladorCrearAlquiler("Alquilado");//2=alquiler
                                 Console.Clear();
                                 break;
                             case 3://Registrar nuevo Reserva
                                 Console.Clear();
-                                var opcion3 = new Controlador_de_Alquiler();
-                                opcion3.Controlador_CrearAlquiler("Reservado");
+                                var opcion3 = new ControladorDeAlquiler();
+                                opcion3.ControladorCrearAlquiler("Reservado");
                                 Console.Clear();
                                 break;
                             case 4://Enlistar las reservas con el detalle de los libros
                                 Console.Clear();
-                                var opcion4 = new Controlador_de_Alquiler();
-                                opcion4.Controlador_ListarReservas();
+                                var opcion4 = new ControladorDeAlquiler();
+                                opcion4.ControladorListarReservas();
                                 Console.Clear();
                                 break;
                             case 5://Enlistar la información de los libros de aquellos que se tenga stock
                                 Console.Clear();
-                                var opcion5 = new Controlador_de_Libros();
-                                opcion5.Controlador_ImprimirLibrosConStock();
+                                var opcion5 = new ControladorDeLibros();
+                                opcion5.ControladorImprimirLibrosConStock();
                                 Console.Clear();
                                 break;
                         }

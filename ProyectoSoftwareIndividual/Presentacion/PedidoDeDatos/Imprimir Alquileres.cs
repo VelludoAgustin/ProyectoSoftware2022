@@ -1,32 +1,25 @@
-﻿using ProyectoSoftwareIndividual.Consultas;
-using TrabajoPracticoIndividualProyectoSoftware.CrearTablas;
+﻿using ProyectoSoftwareIndividual.Presentacion.Menu;
 
 namespace ProyectoSoftwareIndividual.PedidoDeDatos
 {
-    public class Imprimir_Reservas
+    public class ImprimirReservas
     {
-        public void Imprimir_ReservasYLibro()
+        public void ImprimirReservasYLibro(List<RetornoDeObjetos> lista)
         {
-            var listaAlquileres = new ConsultaListaDeAlquileres().ListarAlquileres();
-            foreach (var alquileres in listaAlquileres)
+            foreach (var reserva in lista)
             {
-                var Cliente = new ConsultaDeCliente().BuscarClienteEnBaseId(alquileres.ClienteId);
-                var Libro = new ConsultaDeLibros().BuscarLibroConISBN(alquileres.ISBNId);
-                var Estado = new ConsultaDeEstado().BuscarEstadoID(alquileres.EstadoId);
-                if ("Reservado" == Estado.Descripcion)
-                {
-                    Console.WriteLine("-------------------------------------------------------------------------------");
-                    Console.WriteLine("Nombre de Cliente: " + Cliente.Nombre + " " + Cliente.Apellido);
-                    Console.WriteLine("Fecha de Reserva: " + alquileres.FechaAlquiler);
-                    Console.WriteLine("ISBN: " + Libro.ISBN);
-                    Console.WriteLine("Titulo: " + Libro.Titulo);
-                    Console.WriteLine("Autor: " + Libro.Autor);
-                    Console.WriteLine("Editorial: " + Libro.Editorial);
-                    Console.WriteLine("Edicion: " + Libro.Editorial);
-                    Console.WriteLine("Stock: " + Libro.Stock);
-                }
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("Nombre de Cliente: " + reserva.cliente.Nombre + " " + reserva.cliente.Nombre);
+                Console.WriteLine("Fecha de Reserva: " + reserva.alquileres.FechaReserva);
+                Console.WriteLine("ISBN: " + reserva.libro.ISBN);
+                Console.WriteLine("Titulo: " + reserva.libro.Titulo);
+                Console.WriteLine("Autor: " + reserva.libro.Autor);
+                Console.WriteLine("Editorial: " + reserva.libro.Editorial);
+                Console.WriteLine("Edicion: " + reserva.libro.Editorial);
+                Console.WriteLine("Stock actual: " + reserva.libro.Stock);
+                Console.WriteLine("Imagen :" + reserva.libro.Imagen);
             }
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
             Console.ReadKey();
         }
     }

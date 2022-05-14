@@ -2,11 +2,11 @@
 
 namespace ProyectoSoftwareIndividual.Controladores
 {
-    public class Controlador_de_Libros
+    public class ControladorDeLibros
     {
-        public void Controlador_ImprimirLibrosConStock()
+        public void ControladorImprimirLibrosConStock()
         {
-            new Imprimir_Libros_con_Stock().Imprimir();
+            new ImprimirLibrosConStock().Imprimir();
         }
     }
 }

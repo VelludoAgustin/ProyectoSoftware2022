@@ -2,7 +2,7 @@
 
 namespace ProyectoSoftwareIndividual.PedidoDeDatos
 {
-    public class Imprimir_Libros_con_Stock
+    public class ImprimirLibrosConStock
     {
         public void Imprimir()
         {

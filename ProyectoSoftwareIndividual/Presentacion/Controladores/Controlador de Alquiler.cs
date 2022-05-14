@@ -1,16 +1,21 @@
-﻿using ProyectoSoftwareIndividual.PedidoDeDatos;
+﻿using ProyectoSoftwareIndividual.Aplicacion.Servicios;
+using ProyectoSoftwareIndividual.PedidoDeDatos;
+using ProyectoSoftwareIndividual.Presentacion.Menu;
 
 namespace ProyectoSoftwareIndividual.Controladores
 {
-    public class Controlador_de_Alquiler
+    public class ControladorDeAlquiler
     {
-        public void Controlador_CrearAlquiler(string RoA)
+        public void ControladorCrearAlquiler(string RoA)
         {
-            new CrearDatosAlquiler().ObtenerDatosAlquiler(RoA);
+            List<string> datos = new CrearDatosAlquiler().ObtenerDatosAlquiler(RoA);
+            Respuesta respuesta = new ServicioDeAlquilerYReserva().CrearAlquilerOReserva(datos);
+            new ImprimirRespuesta().ImprimirLaRespuesta(respuesta);
         }
-        public void Controlador_ListarReservas()
+        public void ControladorListarReservas()
         {
-            new Imprimir_Reservas().Imprimir_ReservasYLibro();
+            List<RetornoDeObjetos> lista = new ArmadoListaReservas().DevolverReservas();
+            new ImprimirReservas().ImprimirReservasYLibro(lista);
         }
     }
 }
